@@ -43,5 +43,8 @@ foreach($reportType in $reportTypes) {
     foreach($reportFile in $reportFiles) {
         #combine reports and drop header line from each file
         (Get-Content $reportFile)[1 .. $reportFile.Length] | Add-Content $consolidatedReportFile
+	
+	#uncomment the line below to remove the original report file
+	#Remove-Item $reportFile
     }
 }
